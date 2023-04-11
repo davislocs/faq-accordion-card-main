@@ -1,0 +1,180 @@
+@import "_config";
+
+@mixin flexCenter($direction){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin maxWidth($width){
+    width: 100%;
+    max-width: $width;
+}
+
+@mixin fontProp($fc, $fs, $fw, $lh, $ls){
+    color: $fc;
+    font-size: $fs;
+    font-weight: $fw;
+    line-height: $lh;
+    letter-spacing: $ls;
+}
+
+@mixin desktop {
+    @media (min-width: 1025px){
+        @content;
+    }
+}
+
+.flex-group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+body{
+    background: map-get($clr-map, gradient );
+    background-repeat: no-repeat;
+    @include flexCenter(column);
+    justify-content: flex-start;
+    padding: 14.8rem 2.4rem 8.5rem 2.4rem;
+
+    @include desktop {
+        padding: 12.9rem min(23.9rem, 17vw) 13rem min(28.1rem, 20vw);
+    }
+}
+
+.main{
+    background-color: map-get($clr-map, primary );
+    background-image: url(/images/bg-pattern-mobile.svg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    box-shadow: 0px 50px 50px -20px hsla(261, 75%, 27%, 0.5); 
+    @include maxWidth(60rem);
+    padding: 13.2rem 2.4rem 3.6rem 2.4rem;
+    border-radius: 2.3rem;
+    position: relative;
+
+    @include desktop {
+        @include flexCenter(row);
+        max-width: 100%;
+        justify-content: space-between;
+        background-image: url(/images/bg-pattern-desktop.svg);
+        background-position: -57rem 70%;
+        background-size: min(95.4rem, 135%);
+        padding: 7rem 9.5rem 8rem 0;
+        gap: auto;
+    }
+}
+
+.overflow{
+    overflow: hidden;
+}
+
+.picture-section{
+
+    @include desktop{
+        @include maxWidth(min(47.2rem, 34vw));
+    }
+
+    &__picture{
+        @include maxWidth(23.7rem);
+        position: absolute;
+        top: -13vh;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @include desktop{
+            position: relative;
+            top: initial;
+            left: -17%;
+            transform: initial;
+            width: 50%;
+        }
+
+        img{
+            @include desktop{
+                width: 100%;
+            }
+        }
+    }
+
+    &__picture-box{
+        display: none;
+        
+        @include desktop{
+            display: block;
+            z-index: 5;
+            position: absolute;
+            top: 42%;
+            transform: translateX(-50%);
+            @include maxWidth(min(9rem, 7.5vw));
+        }
+
+        .box{
+            @include desktop{
+            
+                
+            }
+        }
+    }
+}
+
+.faq-section{
+    @include flexCenter(column);
+
+    @include desktop{
+        width: 50%;
+    }
+
+    &__title{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 3rem;
+        @include fontProp(map-get($clr-map, neutral-200 ), map-get($fs, fs-xxl ), $fw-bold, 4rem, initial);
+        text-transform: uppercase;
+
+        @include desktop{
+            text-align: left;
+        }
+    }
+
+    &__faq-conteiner{
+        
+        width: 100%;
+        text-align: left;
+        border-bottom: 0.1rem solid map-get($clr-map , neutral-900 );
+        padding-bottom: 0.6rem;
+        margin-bottom: 1.7rem;
+        display: flex;
+        flex-direction: column;
+        
+        .question{
+            @include fontProp(map-get($clr-map, neutral-400 ), map-get($fs, fs-m ), $fw-regular, 1.61rem, initial);
+            margin-bottom: 0.9rem;
+
+            @include desktop{
+                @include fontProp(map-get($clr-map, neutral-400 ), map-get($fs-desktop, fs-m ), $fw-regular, 1.73rem, initial);
+            }
+        }
+
+        .question:hover{
+            cursor: pointer;
+            color: map-get($clr-map, accent-400 ) !important;
+        }
+
+        .arrow:hover{ 
+            cursor: pointer;
+        }
+
+        .answer{
+            @include fontProp(map-get($clr-map, neutral-600 ), map-get($fs, fs-s ), $fw-regular, 1.8rem, initial);
+            margin-bottom: 1.6rem;
+            padding-right: 0.9rem;
+            display: none;
+        }
+    }
+}
+

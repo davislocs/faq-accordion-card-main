@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./dist/css/main.css">
+  <title>Frontend Mentor | FAQ Accordion Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <script src="./main.js" type="text/javascript"></script>
+</head>
+<body>
+  <main class="main">
+    <div class="picture-section">
+      <div class="overflow">
+        <picture class="picture-section__picture">
+          <source srcset="images/illustration-woman-online-mobile.svg" media="(max-width: 1024px)">
+          <source srcset="images/illustration-woman-online-desktop.svg" media="(min-width: 1025px)">
+          <img src="images/illustration-woman-online-mobile.svg" alt="illustration of woman in front of screen">
+        </picture>
+      </div>
+      <picture class="picture-section__picture-box">
+        <img class="box" src="images/illustration-box-desktop.svg" alt="image of a box">
+      </picture>
+    </div>
+    <section class="faq-section">
+      <h1 class="faq-section__title">faq</h1>
+      <div class="faq-section__faq-conteiner">
+        <div class="flex-group" onclick="openAnswer(document.getElementById('question-one'), document.getElementById('answer-one'), document.getElementById('arrow-one'))">
+          <p id="question-one" class="question">How many team members can I invite?</p>
+          <img src="images/icon-arrow-down.svg" alt="arrow-image" id="arrow-one" class="arrow">
+        </div>
+        <p id="answer-one" class="answer">You can invite up to 2 additional users on the Free plan. There is no limit on 
+          team members for the Premium plan.</p>
+      </div>
+      <div class="faq-section__faq-conteiner">
+        <div class="flex-group" onclick="openAnswer(document.getElementById('question-two'), document.getElementById('answer-two'), document.getElementById('arrow-two'))">
+          <p id="question-two" class="question">What is the maximum file upload size?</p>
+          <img src="images/icon-arrow-down.svg" alt="arrow-image" id="arrow-two" class="arrow">
+        </div>
+        <p id="answer-two" class="answer">No more than 2GB. All files in your account must fit your allotted storage space.</p>
+      </div>
+      <div class="faq-section__faq-conteiner">
+        <div class="flex-group" onclick="openAnswer(document.getElementById('question-three'), document.getElementById('answer-three'), document.getElementById('arrow-three'))">
+          <p id="question-three" class="question">How do I reset my password?</p>
+          <img src="images/icon-arrow-down.svg" alt="arrow-image" id="arrow-three" class="arrow">
+        </div>
+        <p id="answer-three" class="answer">Click “Forgot password” from the login page or “Change password” from your profile page.
+          A reset link will be emailed to you.</p>
+      </div>
+      <div class="faq-section__faq-conteiner">
+        <div class="flex-group" onclick="openAnswer(document.getElementById('question-four'), document.getElementById('answer-four'), document.getElementById('arrow-four'))">
+          <p id="question-four" class="question">Can I cancel my subscription?</p>
+          <img src="images/icon-arrow-down.svg" alt="arrow-image" id="arrow-four" class="arrow">
+        </div>
+        <p id="answer-four" class="answer">Yes! Send us a message and we’ll process your request no questions asked.</p>
+      </div>
+      <div class="faq-section__faq-conteiner">
+        <div class="flex-group" onclick="openAnswer(document.getElementById('question-five'), document.getElementById('answer-five'), document.getElementById('arrow-five'))">
+          <p id="question-five" class="question">Do you provide additional support?</p>
+          <img src="images/icon-arrow-down.svg" alt="arrow-image" id="arrow-five" class="arrow">
+        </div>
+        <p id="answer-five" class="answer">Chat and email support is available 24/7. Phone lines are open during normal business hours.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
